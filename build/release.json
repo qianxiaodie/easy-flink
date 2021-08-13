@@ -1,0 +1,25 @@
+{
+  "signature": {
+    "gwClientId": 328,
+    "gwClientUser": "liuweimin",
+    "gwSecret": "2faab9e4-d9f7-4fcc-9b3a-456e33bb3bb1"
+  },
+  "params": {
+    "clusterId": 146617,
+    "targetVersion": "",
+    "branch": "develop",
+    "accessToken": "",
+    "batchList": [{
+      "planId": null,
+      "seq": 1,
+      "continueIfSuccess": false,
+      "excluded": false,
+      "instanceList": [{
+        "hostSn": 73969,
+        "instanceId": 152821,
+        "destTemplateId": 288
+      }]
+    }],
+    "strategy": {}
+  }
+}

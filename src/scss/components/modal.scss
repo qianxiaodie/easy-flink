@@ -1,0 +1,18 @@
+.m-modal {
+  &-error {
+    position: absolute;
+    left: 40px;
+    bottom: 30px;
+    font-size: 12px;
+    color: #f04346;
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 3px;
+  }
+
+  &-input {
+    width: 100% !important;
+  }
+}

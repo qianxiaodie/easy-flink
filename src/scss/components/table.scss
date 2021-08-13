@@ -1,0 +1,13 @@
+.ndc-table {
+  table {
+    width: 100%;
+    table-layout: fixed;
+    th,
+    td {
+      box-sizing: border-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
