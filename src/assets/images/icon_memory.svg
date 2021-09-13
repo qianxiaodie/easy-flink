@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>icon_memory</title>
+    <desc>Created with Sketch.</desc>
+    <g id="new" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-home-1" transform="translate(-545.000000, -435.000000)" fill="#0075FF">
+            <g id="03" transform="translate(32.000000, 392.000000)">
+                <g id="2" transform="translate(513.000000, 40.000000)">
+                    <g id="icon_memory" transform="translate(0.000000, 3.000000)">
+                        <path d="M26,29 L26,26 C26,25.4477153 25.5522847,25 25,25 L7,25 C6.44771525,25 6,25.4477153 6,26 L6,29 L2,29 C1.44771525,29 1,28.5522847 1,28 L1,10 C2.1045695,10 3,9.1045695 3,8 C3,6.8954305 2.1045695,6 1,6 L1,4 C1,3.44771525 1.44771525,3 2,3 L30,3 C30.5522847,3 31,3.44771525 31,4 L31,6 C29.8954305,6 29,6.8954305 29,8 C29,9.1045695 29.8954305,10 31,10 L31,28 C31,28.5522847 30.5522847,29 30,29 L26,29 Z" id="形状结合" opacity="0.3"></path>
+                        <rect id="矩形备份-8" x="11" y="11" width="4" height="5"></rect>
+                        <rect id="矩形备份-14" x="17" y="11" width="4" height="5"></rect>
+                        <rect id="矩形备份-20" x="23" y="11" width="4" height="5"></rect>
+                        <rect id="矩形备份-13" x="5" y="11" width="4" height="5"></rect>
+                        <g id="编组-9" opacity="0.600000024" transform="translate(0.000000, 22.000000)">
+                            <rect id="矩形备份-12" transform="translate(2.000000, 1.000000) rotate(90.000000) translate(-2.000000, -1.000000) " x="1" y="-1" width="2" height="4"></rect>
+                            <rect id="矩形备份-21" transform="translate(30.000000, 1.000000) rotate(90.000000) translate(-30.000000, -1.000000) " x="29" y="-1" width="2" height="4"></rect>
+                        </g>
+                        <g id="编组-9备份" opacity="0.680659436" transform="translate(9.000000, 25.000000)">
+                            <rect id="矩形备份-9" x="12" y="0" width="2" height="4"></rect>
+                            <rect id="矩形备份-10" x="6" y="0" width="2" height="4"></rect>
+                            <rect id="矩形备份-12" x="0" y="0" width="2" height="4"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -220,7 +220,7 @@ input{
   justify-content: space-between;
   align-items: center;
   .ndc-pagination-desc,.ndc-pagination-size,.ndc-pagination-jump{
-    color: #555;
+    color: #eee;
     line-height: 28px;
   }
 }
@@ -229,8 +229,8 @@ input{
   li{
     width: 28px;
     height: 28px;
-    background: white;
-    color: #222;
+    background: #000;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -238,20 +238,21 @@ input{
     border-radius: 1px;
   }
   .active{
-    color: #3b68b7;
+    color: #1890ff;
     background: none;
-    border-color: #3b68b7;
+    border-color: #1890ff;
   }
   .disadled{
     cursor: not-allowed;
   }
   .pageactive{
-    color: #3b68b7;
+    color: #1890ff;
   }
   .ndc-input{
     width: 48px;
     height: 32px;
     border-color:#bbb ;
+    background: #000;
     box-sizing: border-box;
     width: 48px;
     height: 32px;
@@ -260,13 +261,13 @@ input{
     border-radius: 2px;
     font-size: 14px;
     line-height: 32px;
-    color: #333;
+    color: #fff;
   }
 }
   .ndc-pagination-btn{
 
     background: none;
-    color: #222;
+    color: #fff;
     width: 56px;
     text-align: center;
     font-size: 12px;

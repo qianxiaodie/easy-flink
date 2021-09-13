@@ -37,7 +37,7 @@
           >{{item.tableName}}</a-select-option>
         </a-select>
       </a-form-item>
-      <a-form-item label="字段" :label-col="{ span: 5 }" :wrapper-col="{ span: 10 }" required>
+      <!-- <a-form-item label="字段" :label-col="{ span: 5 }" :wrapper-col="{ span: 10 }" required>
         <a-table
           :columns="fieldcolumns"
           :data-source="columnList"
@@ -52,7 +52,7 @@
           :pagination="Partfieldtotal>25"
           bordered
         ></a-table>
-      </a-form-item>
+      </a-form-item>-->
       <a-form-item label="主键" :label-col="{ span: 5 }" :wrapper-col="{ span: 10 }">
         <u-alarm-input v-on:changeVal="lockValueSel" :options="pkList"></u-alarm-input>
         <span class="m-newbuilt-tips" v-show="isuser">未选择主键的情况下，不支持 Update 操作</span>
@@ -121,7 +121,7 @@
       </a-form-item>
       <!-- </a-form> -->
     </div>
-    <div class="m-newbuilt-tit">
+    <!-- <div class="m-newbuilt-tit">
       <div @click="changecdc" style="float:left;margin-right:16px">
         <a-icon v-if="cdcbool" type="down" />
         <a-icon v-else type="up" />CDC配置
@@ -204,7 +204,7 @@
           </a-radio-group>
         </a-form-item>
       </a-form>
-    </div>
+    </div>-->
 
     <div class="m-newbuilt-tit" @click="changeother">
       <a-icon v-if="otherbool" type="down" />
@@ -226,7 +226,7 @@
           />
         </div>
         <div class="div" style="width:230px;height:34px">
-          <input type="text" v-model="item.value" />
+          <input type="text" class="addinput" v-model="item.value" />
         </div>
         <a-icon style="width:20px;cursor:pointer" type="close" @click="delparams(index)" />
       </div>
@@ -238,14 +238,15 @@
     </div>
     <a-modal @ok="goback()" width="300px" v-model="canclemodal" title="提示">
       <div class="ant-modal-confirm-body">
-        <a-icon type="question-circle" :style="{ fontSize: '22px', color: '#faad14' }" />
+        <!-- <a-icon type="question-circle" :style="{ fontSize: '22px', color: '#faad14' }" /> -->
+        <a-icon type="exclamation-circle" :style="{ fontSize: '22px', color: '#1890ff' }" />
         <span class="ant-modal-confirm-title">确定要离开当前页面？</span>
 
         <div class="ant-modal-confirm-content">离开后已更改信息将不会保留</div>
       </div>
     </a-modal>
     <a-modal width="300px" v-model="successmodal" :footer="false" title="提示">
-      <div class="ant-modal-confirm-body" style="height:80px">
+      <div class="ant-modal-confirm-body" style="height:60px">
         <a-icon type="check-circle" :style="{ fontSize: '22px', color: '#52c41a' }" />
         <span class="ant-modal-confirm-title">新建表成功！</span>
       </div>
@@ -269,7 +270,7 @@ export default class Newbuilt extends Vue {
   private isedit: boolean = false;
   private created() {
     this.outform = this.$form.createForm(this, { name: "dynamic_rule" });
-    this.cdcform = this.$form.createForm(this, { name: "cdcform_rule" });
+    // this.cdcform = this.$form.createForm(this, { name: "cdcform_rule" });
   }
   private outbool: boolean = true;
   private basebool: boolean = true;
@@ -287,7 +288,7 @@ export default class Newbuilt extends Vue {
   private mergeround = true;
   private successmodal: boolean = false;
   private canclemodal: boolean = false;
-  private interval:any="";
+  private interval: any = "";
   private roundvalue = ""; //
   private fixedTimes: object = [];
   private cluster = "";
@@ -360,6 +361,7 @@ export default class Newbuilt extends Vue {
 
   private goback() {
     this.$router.back();
+    this.canclemodal = false;
   }
 
   private async getTableNames() {
@@ -393,6 +395,10 @@ export default class Newbuilt extends Vue {
   private async getKafkaClusterInfos() {
     const res = await this.$request("getKafkaClusterInfos", {});
     this.clusterlist = res.result;
+    this.cluster = this.clusterlist[0].name;
+    this.broker = this.clusterlist[0].brokerList;
+    this.partition = this.clusterlist[0].defaultPartition;
+    this.replication = this.clusterlist[0].defaultReplication;
     console.log(res, "getKafkaClusterInfos");
   }
 
@@ -443,9 +449,9 @@ export default class Newbuilt extends Vue {
     this.cdcenable = res.result.cdcMeta.enable;
     this.cluster = res.result.cdcMeta.kafkaClusterInfo.name;
     this.broker = res.result.cdcMeta.kafkaClusterInfo.brokerList;
-    // this.topic = res.cdcMeta.topicInfo.topicName;
-    // this.partition = res.cdcMeta.topicInfo.partition;
-    // this.replication = res.cdcMeta.topicInfo.replication;
+    this.topic = res.cdcMeta.topicInfo.topicName;
+    this.partition = res.cdcMeta.topicInfo.partition;
+    this.replication = res.cdcMeta.topicInfo.replication;
     this.cdcform.setFieldsValue({
       replication: res.result.cdcMeta.topicInfo.replication,
       partition: res.result.cdcMeta.topicInfo.partition,
@@ -523,9 +529,9 @@ export default class Newbuilt extends Vue {
       ];
       this.success = false;
       this.warning = false;
-      this.cdcform.setFields({
-        topic: { value: e.target.value, errors: arr }
-      });
+      // this.cdcform.setFields({
+      //   topic: { value: e.target.value, errors: arr }
+      // });
     } else if (!e.target.value) {
       const arr = [
         {
@@ -535,9 +541,9 @@ export default class Newbuilt extends Vue {
       ];
       this.warning = false;
       this.success = false;
-      this.cdcform.setFields({
-        topic: { value: e.target.value, errors: arr }
-      });
+      // this.cdcform.setFields({
+      //   topic: { value: e.target.value, errors: arr }
+      // });
       console.log("请输入topic");
     } else if (topicflag) {
       this.success = false;
@@ -570,14 +576,14 @@ export default class Newbuilt extends Vue {
       }
     });
     // return
-    this.cdcform.validateFields(async (err, values) => {
-      if (!err) {
-        // console.info("success",values);
-        this.partition = values.partition;
-        this.topic = values.topic;
-        this.replication = values.replication;
-      }
-    });
+    // this.cdcform.validateFields(async (err, values) => {
+    //   if (!err) {
+    //     // console.info("success",values);
+    //     this.partition = values.partition;
+    //     this.topic = values.topic;
+    //     this.replication = values.replication;
+    //   }
+    // });
     let params = await this.getparams();
     console.log(params, "params", this.isedit);
     let res: any = {};
@@ -607,7 +613,7 @@ export default class Newbuilt extends Vue {
     this.paramslist.forEach(e => {
       properties[e.params] = e.value;
     });
-    let intervals:any=0;
+    let intervals: any = 0;
     if (this.timeround == "min") {
       intervals = this.interval * 6000;
     } else {
@@ -637,7 +643,7 @@ export default class Newbuilt extends Vue {
           brokerList: this.broker //对应的kafka broker地址
         },
         topicInfo: {
-          topicName: this.topic,
+          topicName: `${this.catalog}.${this.database}.${this.tableName}`,
           partition: this.partition, //分区
           replication: this.replication //副本
         },
@@ -662,9 +668,9 @@ export default class Newbuilt extends Vue {
     this.outbool = !this.outbool;
   }
 
-  private changecdc() {
-    this.cdcbool = !this.cdcbool;
-  }
+  // private changecdc() {
+  //   this.cdcbool = !this.cdcbool;
+  // }
   private changeother() {
     this.otherbool = !this.otherbool;
   }
@@ -695,7 +701,7 @@ export default class Newbuilt extends Vue {
   private roundonChange() {}
   private onJumpInput() {}
   private timeroundChange() {}
-  private cdconChange() {}
+  // private cdconChange() {}
   private clusterchange(value) {
     console.log(value);
     this.clusterlist.forEach(e => {
@@ -709,18 +715,23 @@ export default class Newbuilt extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+// $border: 1px solid #eee;
 .m-newbuilt {
+  color: #fff;
+  // background: #263238;
   width: 100%;
   height: 100%;
   padding: 0 16px;
   overflow-y: scroll;
   &-title {
+    color: #fff;
     cursor: pointer;
     font-size: 16px;
     border-bottom: $border;
     line-height: 32px;
   }
   &-tit {
+    color: #fff;
     margin-top: 10px;
     cursor: pointer;
     font-size: 14px;
@@ -728,16 +739,17 @@ export default class Newbuilt extends Vue {
   &-info {
     width: 60%;
     font-size: 12px;
-    color: #333;
+    color: #eee;
   }
   &-tab {
     width: 500px;
     line-height: 32px;
+    color: #eee;
     &-othertit {
       display: flex;
       width: 500px;
       margin-top: 5px;
-      background: #eee;
+      background: #888;
       div {
         width: 250px;
         border: $border;
@@ -808,7 +820,7 @@ export default class Newbuilt extends Vue {
   border-radius: 2px;
   font-size: 14px;
   line-height: 32px;
-  color: #333;
+  color: #eee;
 }
 .has-error .ant-input,
 .has-error .ant-input:hover {

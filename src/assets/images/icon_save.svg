@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.2 (81672) - https://sketch.com -->
+    <title>icon_save</title>
+    <desc>Created with Sketch.</desc>
+    <g id="组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="sloth/操作栏/12px" transform="translate(-164.000000, -11.000000)">
+            <g id="sloth/操作栏/1">
+                <g transform="translate(16.000000, 9.000000)">
+                    <g id="保存" transform="translate(148.000000, 0.000000)">
+                        <g id="Save" transform="translate(0.000000, 2.000000)">
+                            <path d="M11.5857864,1 L13,2.41421356 L13,13 L1,13 L1,1 L4,1 L4,5 L10,5 L10,1 L11.5857864,1 Z" id="形状结合" fill="#C2D8FD"></path>
+                            <rect id="矩形" fill="#337EFF" x="6" y="1" width="3" height="3"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

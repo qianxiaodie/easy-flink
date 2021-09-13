@@ -4,7 +4,7 @@
       <div class="list">
         <div class="user" v-for="(item, index) in users" :key="index">
           {{item.name}}
-            <a-icon @click="remove(item)" type="close-circle" />
+          <a-icon @click="remove(item)" type="close-circle" />
         </div>
         <div class="input">
           <input
@@ -30,10 +30,7 @@
             @click="onClicks(scope.item)"
           >
             {{scope.item.name}}
-            <i
-              v-if="isSelected(scope.item)"
-              class="ndc-icon-tick"
-            />
+            <i v-if="isSelected(scope.item)" class="ndc-icon-tick" />
           </div>
         </template>
       </ndc-virtual-list>
@@ -43,11 +40,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop } from "vue-property-decorator";
 import NdcVirtualList from "./virtual-list.vue";
 
-
-import { cloneDeep } from 'lodash';
+import { cloneDeep } from "lodash";
 
 @Component({
   components: {
@@ -55,38 +51,45 @@ import { cloneDeep } from 'lodash';
   }
 })
 export default class UAlarmInput extends Vue {
-
-  
-
   @Prop({
     default() {
       return [];
     }
   })
   private options!: any[];
-  private users: any=[];
-  private actualOptions: any[] = [{
+  private users: any = [];
+  private actualOptions: any[] = [
+    {
       name: "id",
       type: "string",
       comment: "用户id"
-    }];
+    }
+  ];
   private panelVisible: boolean = false;
   private panelStyle: any = {};
   private active: boolean = false;
 
   private showPanel() {
     if (this.panelVisible) {
-      const panelHeight = this.actualOptions.length ? (this.actualOptions.length * 32) + 17 : 49;
-      this.panelStyle.height = (panelHeight > 305 ? 305 : panelHeight) + 'px';
+      const panelHeight = this.actualOptions.length
+        ? this.actualOptions.length * 32 + 17
+        : 49;
+      this.panelStyle.height = (panelHeight > 305 ? 305 : panelHeight) + "px";
     } else {
       this.panelVisible = true;
       const input = this.$refs.input as HTMLInputElement;
-      this.actualOptions = input.value ? this.options.filter(o => o.name.includes(input.value)) : cloneDeep(this.options);
+      this.actualOptions = input.value
+        ? this.options.filter(o => o.name.includes(input.value))
+        : cloneDeep(this.options);
       this.genPanelStyle();
       setTimeout(() => {
-        window.addEventListener('scroll', this.hidePanelByScroll as EventListenerOrEventListenerObject, true);
-        window.addEventListener('resize', this.genPanelStyle);
-        document.body.addEventListener('click', this.hidePanelByClick);
+        window.addEventListener(
+          "scroll",
+          this.hidePanelByScroll as EventListenerOrEventListenerObject,
+          true
+        );
+        window.addEventListener("resize", this.genPanelStyle);
+        document.body.addEventListener("click", this.hidePanelByClick);
       }, 0);
     }
     this.$nextTick(() => {
@@ -97,14 +100,17 @@ export default class UAlarmInput extends Vue {
 
   private hidePanelByScroll(e: MouseEvent) {
     const target = e.target as any;
-    if (target.className !== 'alarm-input-panel' && target.className !== 'ndc-virtual-list') {
+    if (
+      target.className !== "alarm-input-panel" &&
+      target.className !== "ndc-virtual-list"
+    ) {
       this.hidePanel();
     }
   }
 
   private hidePanelByClick(e: MouseEvent) {
     const target = e.target as any;
-    if (!target.className.startsWith('alarm-input')) {
+    if (!target.className.startsWith("alarm-input")) {
       this.hidePanel();
     }
   }
@@ -113,29 +119,40 @@ export default class UAlarmInput extends Vue {
     if (this.panelVisible) {
       this.panelVisible = false;
       const input = this.$refs.input as HTMLInputElement;
-      input && (input.value = '');
-      window.removeEventListener('scroll', this.hidePanelByScroll as EventListenerOrEventListenerObject);
-      window.removeEventListener('resize', this.genPanelStyle);
-      document.body.removeEventListener('click', this.hidePanelByClick);
+      input && (input.value = "");
+      window.removeEventListener(
+        "scroll",
+        this.hidePanelByScroll as EventListenerOrEventListenerObject
+      );
+      window.removeEventListener("resize", this.genPanelStyle);
+      document.body.removeEventListener("click", this.hidePanelByClick);
     }
   }
 
   private genPanelStyle() {
     if (this.$el) {
       this.panelStyle = {};
-      const { left, top, width, height, bottom } = this.$el.getBoundingClientRect();
+      const {
+        left,
+        top,
+        width,
+        height,
+        bottom
+      } = this.$el.getBoundingClientRect();
       const bodyRect = document.body.getBoundingClientRect();
-      this.panelStyle.left = left + 'px';
-      this.panelStyle.minWidth = width + 'px';
-      const panelHeight = this.actualOptions.length ? (this.actualOptions.length * 32) + 17 : 49;
-      this.panelStyle.height = (panelHeight > 305 ? 305 : panelHeight) + 'px';
+      this.panelStyle.left = left + "px";
+      this.panelStyle.minWidth = width + "px";
+      const panelHeight = this.actualOptions.length
+        ? this.actualOptions.length * 32 + 17
+        : 49;
+      this.panelStyle.height = (panelHeight > 305 ? 305 : panelHeight) + "px";
       if (top + height + 250 > bodyRect.bottom) {
-        this.panelStyle.bottom = '0px';
-        this.panelStyle.marginBottom = (bodyRect.bottom - bottom + height) + 'px';
-        this.panelStyle.borderTop = '1px solid #d2d7e0';
-        this.panelStyle.boderBottom = 'none';
+        this.panelStyle.bottom = "0px";
+        this.panelStyle.marginBottom = bodyRect.bottom - bottom + height + "px";
+        this.panelStyle.borderTop = "1px solid #d2d7e0";
+        this.panelStyle.boderBottom = "none";
       } else {
-        this.panelStyle.top = (top + height) + 'px';
+        this.panelStyle.top = top + height + "px";
       }
     }
   }
@@ -158,25 +175,27 @@ export default class UAlarmInput extends Vue {
     //   return;
     // }
     // this.$emit('insert', user);
-    this.users.push({name:item.name})
+    this.users.push({ name: item.name });
     this.hidePanel();
-    console.log(item,'db',this.users)
-    this.$emit('changeVal',this.users) //发射数据浏览器会卡死
+    console.log(item, "db", this.users);
+    this.$emit("changeVal", this.users); //发射数据浏览器会卡死
   }
 
   private async onInput(e: Event) {
     const target = e.target as any;
     const val = target.value;
     // let res = await getUserList(val);
-    let res = [{
-      name: "id",
-      type: "string",
-      comment: "用户id"
-    }]
+    let res = [
+      {
+        name: "id",
+        type: "string",
+        comment: "用户id"
+      }
+    ];
     // console.log(val, 'input value', res);
     this.actualOptions = res;
-    console.log(this.actualOptions)
-    
+    console.log(this.actualOptions);
+
     // this.actualOptions = val ? this.options.filter(o => o.name.includes(val)) : cloneDeep(this.options);
     // this.showPanel();
   }
@@ -194,7 +213,8 @@ export default class UAlarmInput extends Vue {
   }
 
   private onKeydown(e: KeyboardEvent) {
-    if (e.keyCode === 8) { // 退格
+    if (e.keyCode === 8) {
+      // 退格
       this.onBackSpace();
     }
   }
@@ -217,6 +237,7 @@ export default class UAlarmInput extends Vue {
     &-content {
       width: 320px;
       height: 32px;
+      background: #000;
       border-radius: 3px;
       border: 1px solid #bbbbbb;
       padding: 1px 12px;
@@ -301,7 +322,8 @@ export default class UAlarmInput extends Vue {
       max-height: 304px;
       overflow: auto;
       box-sizing: border-box;
-      background-color: #fff;
+      background-color: #000;
+      // background-color: #666;
       .ndc-virtual-list-item {
         padding: 0;
       }
@@ -311,21 +333,22 @@ export default class UAlarmInput extends Vue {
       padding: 0 16px;
       line-height: 28px;
       box-sizing: border-box;
-      color: #333;
-      background-color: #fff;
+      // color: #333;
+      color: #eee;
+      background-color: #000;
       user-select: none;
       position: relative;
       &:hover,
       &.active {
-        background-color: #f5f7fa;
+        background-color: #ccc;
         color: #3b68b7;
       }
       &.selected {
-        background-color: #f5f5f5;
-        color: #999;
+        background-color: #999;
+        color: #666;
         cursor: not-allowed;
         &:hover {
-          background-color: #f5f5f5;
+          background-color: #ccc;
           color: #999;
         }
       }
@@ -341,7 +364,7 @@ export default class UAlarmInput extends Vue {
       padding: 0 16px;
       line-height: 28px;
       box-sizing: border-box;
-      color: #687381;
+      // color: #687381;
       user-select: none;
     }
   }

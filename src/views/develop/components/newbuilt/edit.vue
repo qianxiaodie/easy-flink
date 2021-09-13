@@ -5,7 +5,7 @@
         <a-icon type="left" />
         <span>配置信息</span>
       </div>
-      <span style="color:#3b68b7;font-size:14px" @click="goedit">
+      <span style="color:#faad14;font-size:14px" @click="goedit">
         <a-icon type="edit" />编辑
       </span>
     </div>
@@ -29,24 +29,24 @@
       <a-form-item label="表名称" :label-col="{ span: 5 }" :wrapper-col="{ span: 10 }" required>
         <span>{{tableName}}</span>
       </a-form-item>
-      <a-form-item label="字段" :label-col="{ span: 5 }" :wrapper-col="{ span: 10 }" required>
+      <!-- <a-form-item label="字段" :label-col="{ span: 5 }" :wrapper-col="{ span: 10 }" required>
         <a-table
           :columns="fieldcolumns"
           :data-source="columnList"
           :pagination="fieldtotal>25"
           bordered
         ></a-table>
-      </a-form-item>
-      <a-form-item label="分区字段" :label-col="{ span: 5 }" :wrapper-col="{ span: 10 }" required>
+      </a-form-item>-->
+      <!-- <a-form-item label="分区字段" :label-col="{ span: 5 }" :wrapper-col="{ span: 10 }" required>
         <a-table
           :columns="fieldcolumns"
           :data-source="partitionColumnList"
           :pagination="Partfieldtotal>25"
           bordered
         ></a-table>
-      </a-form-item>
+      </a-form-item>-->
       <a-form-item label="主键" :label-col="{ span: 5 }" :wrapper-col="{ span: 10 }">
-        <span v-for="(item,index) in pkList" :key="index">{{item.name}}</span>&nbsp;&nbsp;
+        <span style="color:#fff" v-for="(item,index) in pkList" :key="index">{{item.name}}</span>&nbsp;&nbsp;
         <!-- <u-alarm-input v-on:changeVal="lockValueSel" :options="pkList"></u-alarm-input> -->
         <!-- <span class="m-newbuilt-tips" v-show="isuser">未选择主键的情况下，不支持 Update 操作</span> -->
       </a-form-item>
@@ -70,7 +70,7 @@
         </a-radio-group>
         <div v-if="mergetime">
           每
-          <span>{{interval}}</span> &nbsp;&nbsp;&nbsp;
+          <span style="color:#fff">{{interval}}</span> &nbsp;&nbsp;&nbsp;
           <span>{{timeround=="min"?"分钟":"小时"}}</span>
           <!-- <input class="ndc-input" v-model="interval" @input="onJumpInput" /> -->
           <!-- <a-select v-model="timeround" style="width:80px" @change="timeroundChange">
@@ -118,14 +118,14 @@
       </a-form-item>
       <!-- </a-form> -->
     </div>
-    <div class="m-newbuilt-tit">
+    <!-- <div class="m-newbuilt-tit">
       <div @click="changecdc" style="float:left;margin-right:16px">
         <a-icon v-if="cdcbool" type="down" />
         <a-icon v-else type="up" />CDC配置
       </div>
       <a-switch :disabled="true" v-model="cdcenable" @change="cdconChange" />
-    </div>
-    <div v-show="cdcbool" class="m-newbuilt-info">
+    </div>-->
+    <!-- <div v-show="cdcbool" class="m-newbuilt-info">
       <a-form
         layout="horizontal"
         :form="cdcform"
@@ -155,7 +155,7 @@
           </a-radio-group>
         </a-form-item>
       </a-form>
-    </div>
+    </div>-->
 
     <div class="m-newbuilt-tit" @click="changeother">
       <a-icon v-if="otherbool" type="down" />
@@ -295,7 +295,7 @@ export default class Newbuilt extends Vue {
       database: this.database,
       tableName: this.$route.query.tableName
     });
-    res = res.result
+    res = res.result;
     this.columnList = res.columnList;
     this.partitionColumnList = res.partitionColumnList;
     this.pkList = res.pkList;
@@ -309,7 +309,7 @@ export default class Newbuilt extends Vue {
     this.mergehive = res.adaptHiveMeta.enable;
     this.mergetime =
       res.adaptHiveMeta.mergeType == "FIXED_INTERVAL" ? true : false;
-    this.interval = (res.adaptHiveMeta.interval)/6000;
+    this.interval = res.adaptHiveMeta.interval / 6000;
     this.fixedTimes = res.adaptHiveMeta.fixedTimes;
     this.mergeround = res.adaptHiveMeta.mergeAll;
     this.roundvalue = res.adaptHiveMeta.partitionCnt;
@@ -384,7 +384,10 @@ export default class Newbuilt extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+// $border: 1px solid #eee;
 .m-newbuilt {
+  color: #fff;
+  // background: #263238;
   width: 100%;
   height: 100%;
   padding: 0 16px;
@@ -403,16 +406,17 @@ export default class Newbuilt extends Vue {
   &-info {
     width: 60%;
     font-size: 12px;
-    color: #333;
+    color: #eee;
   }
   &-tab {
     width: 500px;
     line-height: 32px;
+    color: #eee;
     &-othertit {
       display: flex;
       width: 500px;
       margin-top: 5px;
-      background: #eee;
+      background: #888;
       div {
         width: 250px;
         border: $border;
@@ -483,7 +487,7 @@ export default class Newbuilt extends Vue {
   border-radius: 2px;
   font-size: 14px;
   line-height: 32px;
-  color: #333;
+  color: #eee;
 }
 .has-error .ant-input,
 .has-error .ant-input:hover {

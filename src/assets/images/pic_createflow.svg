@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="160px" viewBox="0 0 200 160" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>空态-任务流</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-5.0%" y="-100.0%" width="110.0%" height="300.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="2" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <rect id="path-2" x="16" y="78" width="104" height="24" rx="4"></rect>
+        <rect id="path-3" x="47" y="36" width="104" height="24" rx="4"></rect>
+        <rect id="path-4" x="79" y="85" width="104" height="24" rx="4"></rect>
+    </defs>
+    <g id="自助分析🐶" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="空态-任务流">
+            <rect id="Rectangle-21" x="0" y="0" width="200" height="160"></rect>
+            <ellipse id="Oval" fill-opacity="0.6" fill="#DEDEDE" filter="url(#filter-1)" cx="99" cy="149" rx="60" ry="3"></ellipse>
+            <g id="Rectangle-9">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <rect stroke="#999999" stroke-width="2" x="17" y="79" width="102" height="22" rx="4"></rect>
+            </g>
+            <rect id="Rectangle-13" fill="#DEDEDE" x="44" y="86" width="56" height="8"></rect>
+            <circle id="Oval-6" fill="#DFDFDF" cx="31" cy="90" r="7"></circle>
+            <g id="Rectangle-9">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                <rect stroke="#999999" stroke-width="2" x="48" y="37" width="102" height="22" rx="4"></rect>
+            </g>
+            <g id="Rectangle-9">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-4"></use>
+                <rect stroke="#999999" stroke-width="2" x="80" y="86" width="102" height="22" rx="4"></rect>
+            </g>
+            <circle id="Oval-6" fill="#DFDFDF" cx="62" cy="48" r="7"></circle>
+            <circle id="Oval-6" fill="#DFDFDF" cx="94" cy="97" r="7"></circle>
+            <path d="M99,63.9722222 C101.209139,63.9722222 103,62.1937978 103,60 C99.7687431,60 97.55299,60 95,60 C95,62.1937978 96.790861,63.9722222 99,63.9722222 Z" id="Oval" fill="#999999"></path>
+            <path d="M127,85 L127,80 C127,78.3433333 128.343333,77 130,77 L132,77 C133.656667,77 135,78.3433333 135,80 L135,85 L127,85 L127,85 Z M132.885333,80.0573333 L131,81.9426667 L129.114667,80.0573333 L128.171333,81 L130.057333,82.8853333 L130.057333,82.8853333 L131,83.8286667 L131.942667,82.8853333 L131.942667,82.8853333 L133.828667,81 L132.885333,80.0573333 L132.885333,80.0573333 Z" id="Shape" fill="#999999"></path>
+            <path d="M63,78 L63,73 C63,71.3433333 64.3433333,70 66,70 L68,70 C69.6566667,70 71,71.3433333 71,73 L71,78 L63,78 L63,78 Z M68.8853333,73.0573333 L67,74.9426667 L65.1146667,73.0573333 L64.1713333,74 L66.0573333,75.8853333 L66.0573333,75.8853333 L67,76.8286667 L67.9426667,75.8853333 L67.9426667,75.8853333 L69.8286667,74 L68.8853333,73.0573333 L68.8853333,73.0573333 Z" id="Shape" fill="#999999"></path>
+            <path d="M99,62 C99,63.4805903 100.168521,65.2899135 102.358004,66.6727445 C105.203661,68.470002 109.548965,69.5 115.5,69.5 C126.10145,69.5 131,72.8516396 131,77 L132,77 C132,72.200992 126.590858,68.5 115.5,68.5 C109.724472,68.5 105.561408,67.5131995 102.891996,65.8272555 C100.973608,64.615642 100,63.1081193 100,62 L99,62 Z" id="Path-2" fill="#999999" fill-rule="nonzero"></path>
+            <path d="M99,63 C99,64.902741 94.8304156,66 83.5,66 C69.8055854,66 67,66.5906495 67,70 L68,70 C68,67.5409294 70.5694146,67 83.5,67 C95.4695844,67 100,65.8077854 100,63 L99,63 Z" id="Path-2" fill="#999999" fill-rule="nonzero"></path>
+            <rect id="Rectangle-13" fill="#DEDEDE" x="75" y="44" width="56" height="8"></rect>
+            <rect id="Rectangle-13" fill="#DEDEDE" x="107" y="93" width="56" height="8"></rect>
+            <g id="乱七八糟/add" transform="translate(32.000000, 109.000000)" fill="#CCCCCC">
+                <rect id="Rectangle-4" x="3.84615385" y="0" width="2.30769231" height="10"></rect>
+                <rect id="Rectangle-4" transform="translate(5.000000, 5.000000) rotate(90.000000) translate(-5.000000, -5.000000) " x="3.84615385" y="0" width="2.30769231" height="10"></rect>
+            </g>
+            <circle id="Oval-5" fill="#B2E0FF" cx="27" cy="60" r="4"></circle>
+            <g id="乱七八糟/add" transform="translate(166.000000, 50.000000)" fill="#CCCCCC">
+                <rect id="Rectangle-4" x="4.61538462" y="0" width="2.76923077" height="12"></rect>
+                <rect id="Rectangle-4" transform="translate(6.000000, 6.000000) rotate(90.000000) translate(-6.000000, -6.000000) " x="4.61538462" y="0" width="2.76923077" height="12"></rect>
+            </g>
+            <circle id="Oval-5" fill="#B2E0FF" cx="189.5" cy="68.5" r="2.5"></circle>
+            <circle id="Oval-5" fill="#B2E0FF" cx="149" cy="77" r="2"></circle>
+            <g id="乱七八糟/add" transform="translate(16.000000, 28.000000)" fill="#CCCCCC">
+                <rect id="Rectangle-4" x="3.07692308" y="0" width="1.84615385" height="8"></rect>
+                <rect id="Rectangle-4" transform="translate(4.000000, 4.000000) rotate(90.000000) translate(-4.000000, -4.000000) " x="3.07692308" y="0" width="1.84615385" height="8"></rect>
+            </g>
+            <circle id="Oval-5" fill="#B2E0FF" cx="62" cy="122" r="2"></circle>
+        </g>
+    </g>
+</svg>

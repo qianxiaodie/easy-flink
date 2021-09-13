@@ -1,18 +1,19 @@
 <template>
   <div class="card-container">
     <div class="m-content-tit">表名</div>
-    <a-tabs type="card" default-active-key="1">
+    <Baseinfo></Baseinfo>
+    <!-- <a-tabs type="card" default-active-key="1">
       <a-tab-pane key="1" tab="基本信息">
         <Baseinfo></Baseinfo>
       </a-tab-pane>
       <a-tab-pane key="2" tab="数据合并">
         <datamerge></datamerge>
       </a-tab-pane>
-    </a-tabs>
+    </a-tabs>-->
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Provide,Watch } from "vue-property-decorator";
+import { Component, Vue, Provide, Watch } from "vue-property-decorator";
 import { Action, State } from "vuex-class";
 import Baseinfo from "../baseinfo/index.vue";
 import datamerge from "../datamerge/index.vue";
@@ -30,7 +31,7 @@ export default class Content extends Vue {
 
   @Watch("dataBase")
   private onDataBaseChanged(val: any) {
-    console.log(val, "database改变");
+    console.log(val, "content database改变");
     // this.$router.push({
     //   name:"database"
     // })
@@ -43,20 +44,24 @@ export default class Content extends Vue {
 </script>
 <style lang="scss">
 $color: #3b68b7;
-$border: 1px solid #ccc;
+$border: 1px solid #333;
 .card-container {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border: $border;
+  // border: $border;
   box-sizing: border-box;
-  padding: 16px 0;
+  // padding: 16px 0;
   .m-content-tit {
+    // padding-top: 16px;
     width: 100%;
-    height: 40px;
+    line-height: 40px;
     font-size: 16px;
+    color: #fff;
     text-align: center;
-    border-bottom: $border;
+    border: $border;
+
+    // border-bottom: $border;
   }
 }
 .card-container > .ant-tabs-card > .ant-tabs-content {

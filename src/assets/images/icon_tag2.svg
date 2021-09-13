@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.2 (81672) - https://sketch.com -->
+    <title>icon_tag</title>
+    <desc>Created with Sketch.</desc>
+    <g id="组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="sloth/操作栏/12px" transform="translate(-438.000000, -11.000000)">
+            <g id="sloth/操作栏/1">
+                <g transform="translate(16.000000, 9.000000)">
+                    <g id="打标签" transform="translate(420.000000, 0.000000)">
+                        <g id="编组-2" transform="translate(0.000000, 1.000000)">
+                            <g id="编组-7" transform="translate(8.000000, 7.500000) rotate(-45.000000) translate(-8.000000, -7.500000) translate(4.000000, 1.000000)">
+                                <path d="M0,3.58578644 L3.29289322,0.292893219 C3.68341751,-0.0976310729 4.31658249,-0.0976310729 4.70710678,0.292893219 L8,3.58578644 L8,12.5857864 L0,12.5857864 L0,3.58578644 Z" id="形状结合" fill="#C2D8FD"></path>
+                                <circle id="椭圆形" fill="#3274E6" cx="4" cy="4" r="1"></circle>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

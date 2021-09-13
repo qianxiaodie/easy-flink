@@ -34,6 +34,7 @@ export default class HomeContent extends Vue {
   flex: 1;
   overflow: hidden;
   position: relative;
+  // background: #000;
   // padding-bottom: 37px;
 }
 </style>

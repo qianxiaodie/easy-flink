@@ -2,7 +2,7 @@
   <div class="m-home-empty">
     <img src="../../assets/images/sloth_gray.png" />
     <div class="title">暂无权限，无法查看页面</div>
-    <div class="desc g-flex-ac">如需申请权限，请登录<span class="g-text-link" @click="jumpToMammut">猛犸</span>联系管理员</div>
+    <div class="desc g-flex-ac">如需申请权限，请登录<span class="g-text-link" @click="jumpToMammut"></span>联系管理员</div>
   </div>
 </template>
 

@@ -85,16 +85,15 @@ export default class NavTree extends Vue {
     await this.getHiveCatalogs();
     await this.getHiveDatabases();
     this.keyword = "";
-    
+
     // this.database.push(this.list[0]);
     this.database.push(localStorage.getItem("database") || this.list[0]);
     this.setDatabase(this.database[0]);
-    
+
     localStorage.setItem("database", this.database);
   }
 
-  private mounted() {
-  }
+  private mounted() {}
 
   private async getHiveCatalogs() {
     let result = await this.$request("getHiveCatalogs", {
@@ -104,7 +103,7 @@ export default class NavTree extends Vue {
     result = result.result;
     this.hiveList = result;
     this.cluster = this.hiveList[0].hiveCatalog || "";
-    this.setCatalog(this.cluster )
+    this.setCatalog(this.cluster);
     console.log(this.hiveList, "hiveList");
     return result;
   }
@@ -163,15 +162,16 @@ export default class NavTree extends Vue {
   height: 85%;
   .ant-menu {
     width: 200px;
-    color: #666;
+    color: #999;
     .ant-menu-item-selected {
-      background-color: #f5f7fa;
-      color: #222;
+      // background-color: #f5f7fa;
+      background-color: #666;
+      color: #f5f7fa;
       font-weight: 600;
     }
     .ant-menu-item-active {
-      background-color: #f5f7fa;
-      color: #666;
+      background-color: #666;
+      color: #f5f7fa;
     }
   }
 }

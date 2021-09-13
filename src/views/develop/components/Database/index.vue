@@ -3,7 +3,7 @@
     <div class="m-database-content-tit">
       <div></div>
       <div>库名</div>
-      <a-button type="primary" @click="newbuilt">新建表</a-button>
+      <a-button type="primary" @click="newbuilt">Create</a-button>
     </div>
 
     <div class="m-database-contain">
@@ -14,14 +14,14 @@
           style="width: 200px"
           @search="onSearch"
         />&nbsp;
-        <a-icon style="cursor:pointer" @click="onSearch" type="redo" />
+        <a-icon style="cursor:pointer;color:#ccc" @click="onSearch" type="redo" />
       </div>
 
       <a-table :columns="columns" :data-source="listData" bordered :pagination="false">
         <a slot="tags" slot-scope="text,tags" href="javascript:;">
-          <span class="link" @click="detailEvent(text,tags)">详情</span>
-          <span class="link" @click="eduit(text,tags)">配置信息</span>
-          <span class="link" @click="delEvent(text,tags)">删除</span>
+          <span class="link" @click="detailEvent(text,tags)">detail</span>
+          <span class="link" @click="eduit(text,tags)">edit</span>
+          <span class="link" @click="delEvent(text,tags)">delete</span>
         </a>
       </a-table>
 
@@ -63,9 +63,9 @@ export default class database extends Vue {
 
   @Watch("dataBase")
   private onDataBaseChanged(val: any) {
-    console.log(val, "database改变");
+    console.log(val, "db database改变");
     this.refresh();
-    this.dataBase;
+    // this.dataBase = val;
   }
 
   @State("catalog", MODULE_NAMESPACE.state)
@@ -186,7 +186,7 @@ export default class database extends Vue {
   }
 
   private created() {
-    // this.refresh();
+    this.refresh();
   }
 
   private async refresh() {
@@ -209,33 +209,28 @@ export default class database extends Vue {
 </script>
 <style lang="scss" scoped>
 .link {
-  color: #3b68b7;
+  color: #1890ff;
   cursor: pointer;
   margin: 0 2px;
-}
-.ant-table-thead > tr > th {
-  padding: 2px;
-  background: #eee;
-  color: #909399;
-}
-.ant-table-tbody > tr > td {
-  padding: 10px 2px;
 }
 .m-database {
   width: 100%;
   height: 100%;
-  padding: 16px 0;
+  // padding: 16px 0;
   &-tit {
     margin: 10px 0;
   }
   &-content {
-    width: 100%;
+    // width: 100%;
+    width: 80%;
     &-tit {
       width: 100%;
       font-size: 16px;
       height: 40px;
+      color: #fff;
       text-align: center;
       border-bottom: $border;
+      border-right: $border;
       display: flex;
       align-items: center;
       justify-content: space-between;

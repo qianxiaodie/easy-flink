@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.2 (81672) - https://sketch.com -->
+    <title>icon_copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="sloth/操作栏/12px" transform="translate(-102.000000, -11.000000)">
+            <g id="sloth/操作栏/1">
+                <g transform="translate(16.000000, 9.000000)">
+                    <g id="复制" transform="translate(86.000000, 0.000000)">
+                        <g id="icon_copy" transform="translate(0.000000, 2.000000)">
+                            <g id="file-plus备份-2" transform="translate(3.000000, 0.000000)">
+                                <path d="M6.75735931,5.68434189e-14 L10,3.24264069 L10,12 L0,12 L0,5.68434189e-14 L6.75735931,5.68434189e-14 Z" id="形状结合" fill="#C2D8FD" opacity="0.4"></path>
+                                <path d="M6.5,6.5 L8,6.5 L8,7.5 L6.5,7.5 L6.5,9 L5.5,9 L5.5,7.5 L4,7.5 L4,6.5 L5.5,6.5 L5.5,5 L6.5,5 L6.5,6.5 Z" id="形状结合" fill="#337EFF"></path>
+                            </g>
+                            <g id="file-plus" transform="translate(1.000000, 2.000000)">
+                                <path d="M6.75735931,5.68434189e-14 L10,3.24264069 L10,11 L0,11 L0,5.68434189e-14 L6.75735931,5.68434189e-14 Z" id="形状结合" fill="#C2D8FD"></path>
+                                <rect id="形状结合" fill="#337EFF" x="2.5" y="4" width="1" height="4"></rect>
+                                <rect id="形状结合备份" fill="#337EFF" x="2.5" y="6.5" width="1" height="4"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.2 (81672) - https://sketch.com -->
+    <title>icon_wenjian</title>
+    <desc>Created with Sketch.</desc>
+    <g id="组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="侧边栏/icon-文件">
+            <g>
+                <rect id="矩形" x="0" y="0" width="16" height="16"></rect>
+                <path d="M11.6388889,10 L15,10 L15,14 C15,14.5522847 14.5522847,15 14,15 L7,15 C6.44771525,15 6,14.5522847 6,14 L6,12 L6,8 L10.4421639,8 C10.9259111,8 11.3402983,8.34626769 11.4262518,8.82231747 L11.6388889,10 Z" id="形状结合" fill="#424D69" transform="translate(10.500000, 11.500000) scale(-1, 1) translate(-10.500000, -11.500000) "></path>
+                <path d="M9.36325688,1 L13,4.73181736 L13,14 L2,14 L2,1 L9.36325688,1 Z" id="形状结合" fill="#424D69" opacity="0.3"></path>
+                <rect id="矩形" fill="#424D69" opacity="0.3" x="3" y="2" width="9" height="11"></rect>
+                <rect id="矩形" fill="#424D69" x="3" y="4" width="4" height="1"></rect>
+                <rect id="矩形备份-10" fill="#424D69" x="3" y="6" width="2" height="1"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

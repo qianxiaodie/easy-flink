@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.2 (81672) - https://sketch.com -->
+    <title>icon_yuanshuju</title>
+    <desc>Created with Sketch.</desc>
+    <g id="组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="侧边栏/icon-元数据">
+            <g id="icon_yuanshuju">
+                <rect id="矩形" opacity="0.206659226" x="0" y="0" width="16" height="16"></rect>
+                <path d="M1,11 L12,11 L12,14 C12,14.5522847 11.5522847,15 11,15 L2,15 C1.44771525,15 1,14.5522847 1,14 L1,11 Z" id="矩形" fill="#424D69" opacity="0.3"></path>
+                <rect id="矩形备份-26" fill="#424D69" opacity="0.3" x="1" y="7" width="5" height="5" rx="1"></rect>
+                <path d="M6,9 L15,9 L15,14 C15,14.5522847 14.5522847,15 14,15 L7,15 C6.44771525,15 6,14.5522847 6,14 L6,9 Z" id="矩形备份-23" fill="#424D69"></path>
+                <path d="M6,2 L15,2 L15,14 C15,14.5522847 14.5522847,15 14,15 L7,15 C6.44771525,15 6,14.5522847 6,14 L6,2 Z" id="矩形备份-20" fill="#424D69" opacity="0.3"></path>
+                <rect id="矩形备份-28" fill="#424D69" opacity="0.3" x="6" y="8" width="9" height="1"></rect>
+                <path d="M3,10 L4,10 C4.55228475,10 5,10.4477153 5,11 L5,12 L2,12 L2,11 C2,10.4477153 2.44771525,10 3,10 Z" id="矩形备份-19" fill="#424D69" opacity="0.3"></path>
+                <path d="M3,6 L4,6 C4.55228475,6 5,6.44771525 5,7 L5,8 L2,8 L2,7 C2,6.44771525 2.44771525,6 3,6 Z" id="矩形备份-27" fill="#424D69" opacity="0.3"></path>
+                <path d="M8,1 L9,1 C9.55228475,1 10,1.44771525 10,2 L10,3 L7,3 L7,2 C7,1.44771525 7.44771525,1 8,1 Z" id="矩形备份-21" fill="#424D69" opacity="0.3"></path>
+                <path d="M12,1 L13,1 C13.5522847,1 14,1.44771525 14,2 L14,3 L11,3 L11,2 C11,1.44771525 11.4477153,1 12,1 Z" id="矩形备份-22" fill="#424D69" opacity="0.3"></path>
+                <path d="M8,8 L9,8 C9.55228475,8 10,8.44771525 10,9 L10,9 L7,9 C7,8.44771525 7.44771525,8 8,8 Z" id="矩形备份-24" fill="#424D69"></path>
+                <path d="M12,8 L13,8 C13.5522847,8 14,8.44771525 14,9 L14,9 L11,9 C11,8.44771525 11.4477153,8 12,8 Z" id="矩形备份-25" fill="#424D69"></path>
+            </g>
+        </g>
+    </g>
+</svg>

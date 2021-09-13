@@ -3,7 +3,13 @@
 		<div class="g-flex">
 			<div class="logo g-flex-ac">
         <img src="../../assets/images/logo.svg" />
-        <div class="logo-desc">实时数据湖</div>
+        <div class="logo-desc">Fast Data</div>
+      </div>
+      <div class="tabs">
+        <span>实时数仓</span>
+        <span>实时计算</span>
+        <span>数据探索</span>
+        <span>数据血缘</span>
       </div>
 		</div>
 	</div>
@@ -219,6 +225,14 @@ export default class HomeHeader extends Vue {
       font-weight: 600;
       margin-left: 16px;
       cursor: default;
+    }
+  }
+  .tabs{
+    font-size: 16px;
+    color: #fff;
+    line-height: 52px;
+    span{
+      margin: 0 10px;
     }
   }
   .nav {
