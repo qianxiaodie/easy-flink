@@ -13,7 +13,6 @@ import { Component, Vue, Provide } from 'vue-property-decorator';
 import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
 
 // import Axios from 'axios';
-//测试注释
 moment.locale('fr');
 
 @Component

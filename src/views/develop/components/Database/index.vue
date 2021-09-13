@@ -59,7 +59,7 @@ import { MODULE_NAMESPACE } from "@utils/constant";
 })
 export default class database extends Vue {
   @State("dataBase", MODULE_NAMESPACE.state)
-  private dataBase!: object;
+  private dataBase!: any;
 
   @Watch("dataBase")
   private onDataBaseChanged(val: any) {
@@ -69,12 +69,13 @@ export default class database extends Vue {
   }
 
   @State("catalog", MODULE_NAMESPACE.state)
-  private catalog!: object;
+  private catalog!: any;
 
   @Watch("catalog")
   private onCatalogChanged(val: any) {
     console.log(val, "catalog改变");
     this.refresh();
+    // this.catalog = val;
   }
 
   private columns: object = [
@@ -185,11 +186,13 @@ export default class database extends Vue {
     this.refresh();
   }
 
-  private created() {
-    this.refresh();
+  private mounted() {
+    if (this.dataBase && this.catalog) {
+      this.refresh();
+    }
   }
 
-  private async refresh() {
+  public async refresh() {
     let result = await this.$request("getTablelistInfos", {
       creator: "",
       userId: "",

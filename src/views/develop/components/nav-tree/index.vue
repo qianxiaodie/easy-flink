@@ -20,7 +20,8 @@
     <div class="m-nav-tree">
       <a-menu v-model="database" style="width: 256px" mode="vertical">
         <a-menu-item :key="item" v-for="(item,index) in databaselist" @click="handleClick(item)">
-          <a-icon type="mail" />
+          <!-- <a-icon type="mail" /> -->
+          <a-icon type="database" />
           <!-- <a-icon class='myIcon yibiaopanIcon'> background -->
           {{item}}
         </a-menu-item>
