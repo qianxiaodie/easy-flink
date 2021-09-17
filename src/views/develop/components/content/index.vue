@@ -1,6 +1,9 @@
 <template>
   <div class="card-container">
-    <div class="m-content-tit">表名</div>
+    <div class="m-content-tit">
+      <a-icon type="left" @click="back()" />表名
+      <span></span>
+    </div>
     <Baseinfo></Baseinfo>
     <!-- <a-tabs type="card" default-active-key="1">
       <a-tab-pane key="1" tab="基本信息">
@@ -37,6 +40,10 @@ export default class Content extends Vue {
     // })
   }
 
+  private back() {
+    this.$router.back();
+  }
+
   private callback(key) {
     console.log(key);
   }
@@ -60,7 +67,10 @@ $border: 1px solid #333;
     color: #fff;
     text-align: center;
     border: $border;
-
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    align-items: center;
     // border-bottom: $border;
   }
 }
