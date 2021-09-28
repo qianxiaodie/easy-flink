@@ -1,99 +1,121 @@
 .ndc-pagination {
-	display: flex;
-	justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
   box-sizing: border-box;
-	&-desc {
-		line-height: 32px;
-    color: #999;
+
+  &-desc {
+    line-height: 32px;
+    color: #EDDB9C;
     margin-right: 16px;
   }
+
   &-size {
     margin-left: -16px;
     line-height: 32px;
-    color: #999;
+    color: #EDDB9C;
     margin-right: 16px;
+
     .ndc-select {
       width: 80px;
       margin: 0 8px;
     }
   }
+
   &-jump {
     margin-left: 16px;
     line-height: 32px;
-    color: #999;
+    color: #EDDB9C;
+
     .ndc-input {
       width: 80px;
       margin: 0 8px;
     }
+
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
       -webkit-appearance: none;
     }
+
     input[type="number"] {
       -moz-appearance: textfield;
     }
   }
+
   li {
     height: 32px;
     width: 32px;
     line-height: 32px;
     text-align: center;
-		border: 1px solid #d9dde3;
-		border-radius: 2px;
-		background-color: #fff;
-		box-sizing: border-box;
-		color: #333;
-		font-size: 14px;
+    border: 1px solid #d9dde3;
+    border-radius: 2px;
+    background-color: #fff;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 14px;
     cursor: pointer;
-    & + li {
+
+    &+li {
       margin-left: 4px;
     }
+
     &.eps {
       border: none;
       background-color: transparent;
       pointer-events: none;
+
       a::before {
         content: "...";
       }
     }
+
     &:hover {
       background: #eaf2ff;
       border: 1px solid #3B68B7;
       color: #333;
     }
+
     &.active {
       background-color: #3B68B7;
       border-color: #3B68B7;
       color: #fff;
     }
+
     &[disabled] {
       color: #d5e1f0;
       pointer-events: none;
     }
+
     a {
       color: inherit;
+
       &:hover {
         text-decoration: none;
       }
     }
   }
+
   &.small {
     font-size: 12px;
+
     .ndc-pagination-desc,
     .ndc-pagination-jump,
     .ndc-pagination-size {
       line-height: 24px;
     }
+
     .ndc-select {
       height: 24px;
+
       &-label {
         line-height: 22px;
       }
     }
+
     .ndc-input {
       height: 24px;
       font-size: 12px;
     }
+
     li {
       line-height: 24px;
       height: 24px;

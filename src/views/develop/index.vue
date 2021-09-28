@@ -112,9 +112,8 @@ export default class Develop extends Vue {
     flex: 0 0 32px;
     border-right: $border;
     box-sizing: border-box;
-    // background-color: #fff;
-    background-color: #000;
-    box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.08);
+    background-color: #393939;
+    // box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.08);
     &:after {
       position: absolute;
       content: "";
@@ -142,13 +141,14 @@ export default class Develop extends Vue {
   }
 
   &-tree {
+    background: #313131;
     width: 20%;
     min-width: 232px;
     padding: 0 16px;
     transition: width 0.2s ease-in-out 50ms;
     position: relative;
     z-index: 10;
-    color: #ccc;
+    color: #EDDB9C;
     height: 100%;
     border-right: $border;
     box-sizing: border-box;

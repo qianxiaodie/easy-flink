@@ -149,7 +149,7 @@ export default class UAlarmInput extends Vue {
       if (top + height + 250 > bodyRect.bottom) {
         this.panelStyle.bottom = "0px";
         this.panelStyle.marginBottom = bodyRect.bottom - bottom + height + "px";
-        this.panelStyle.borderTop = "1px solid #d2d7e0";
+        this.panelStyle.borderTop = "1px solid rgba(255, 255, 255, 0.2)";
         this.panelStyle.boderBottom = "none";
       } else {
         this.panelStyle.top = top + height + "px";
@@ -237,15 +237,15 @@ export default class UAlarmInput extends Vue {
     &-content {
       width: 320px;
       height: 32px;
-      background: #000;
+      background: #393939;
       border-radius: 3px;
-      border: 1px solid #bbbbbb;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 1px 12px;
       box-sizing: border-box;
       overflow-y: auto;
       &.active,
       &:hover {
-        border-color: #3b68b7;
+        border-color: #EDDB9C;
       }
       .list {
         list-style: none;
@@ -268,11 +268,11 @@ export default class UAlarmInput extends Vue {
           white-space: nowrap;
           line-height: 24px;
           height: 24px;
-          background: #eee;
+          background: rgba(255, 255, 255, 0.2);
           border-radius: 3px;
           padding: 0 4px;
           margin: 0 4px;
-          color: #666;
+          color: #EDDB9C;
           box-sizing: border-box;
           img {
             margin-left: 8px;
@@ -290,13 +290,13 @@ export default class UAlarmInput extends Vue {
             border-radius: 8px;
             cursor: pointer;
             &:hover {
-              background: #eee;
+              background: rgba(255, 255, 255, 0.2);
             }
             .ndc-icon-close {
               display: block;
               font-size: 16px;
               transform: scale(0.5);
-              color: #868f9e;
+              color: #EDDB9C;
             }
           }
         }
@@ -315,14 +315,14 @@ export default class UAlarmInput extends Vue {
     &-panel {
       position: fixed;
       z-index: 99;
-      border: 1px solid #d2d7e0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-top: none;
       border-radius: 2px;
       padding: 8px 0;
       max-height: 304px;
       overflow: auto;
       box-sizing: border-box;
-      background-color: #000;
+      background-color: #393939;
       // background-color: #666;
       .ndc-virtual-list-item {
         padding: 0;
@@ -334,22 +334,22 @@ export default class UAlarmInput extends Vue {
       line-height: 28px;
       box-sizing: border-box;
       // color: #333;
-      color: #eee;
-      background-color: #000;
+      color: #f3e3ab;
+      background-color: #393939;
       user-select: none;
       position: relative;
       &:hover,
       &.active {
-        background-color: #ccc;
-        color: #3b68b7;
+        background-color: #505050;
+        color: #EDDB9C;
       }
       &.selected {
-        background-color: #999;
-        color: #666;
+        background-color: #505050;
+        color: #EDDB9C;
         cursor: not-allowed;
         &:hover {
-          background-color: #ccc;
-          color: #999;
+          background-color: #505050;
+          color: #EDDB9C;
         }
       }
       .ndc-icon-tick {

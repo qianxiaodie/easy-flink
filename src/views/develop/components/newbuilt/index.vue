@@ -54,7 +54,14 @@
         ></a-table>
       </a-form-item>-->
       <a-form-item label="主键" :label-col="{ span: 5 }" :wrapper-col="{ span: 10 }">
-        <u-alarm-input v-on:changeVal="lockValueSel" :options="pkList"></u-alarm-input>
+        <div v-if="isedit" class="m-edit-pklist">
+          <span
+            style="color:#eddb9c;margin-right:16px"
+            v-for="(item,index) in pkList"
+            :key="index"
+          >{{item.name}}</span>
+        </div>
+        <u-alarm-input v-else v-on:changeVal="lockValueSel" :options="pkList"></u-alarm-input>
         <span class="m-newbuilt-tips" v-show="isuser">未选择主键的情况下，不支持 Update 操作</span>
       </a-form-item>
       <a-form-item label="合并到数据Hive" :label-col="{ span: 5 }" :wrapper-col="{ span: 10 }" required>
@@ -89,6 +96,7 @@
             <a-form-item>
               <a-input
                 type="string"
+                autocomplete="off"
                 v-decorator="[
                     'fixedtime',
                     {
@@ -206,7 +214,7 @@
       </a-form>
     </div>-->
 
-    <div class="m-newbuilt-tit" @click="changeother">
+    <!-- <div class="m-newbuilt-tit" @click="changeother">
       <a-icon v-if="otherbool" type="down" />
       <a-icon v-else type="up" />其他配置
     </div>
@@ -231,7 +239,7 @@
         <a-icon style="width:20px;cursor:pointer" type="close" @click="delparams(index)" />
       </div>
       <div @click="addparams" class="m-newbuilt-tab-add">+</div>
-    </div>
+    </div>-->
     <div class="m-newbuilt-foot">
       <a-button type="primary" @click="check">确定</a-button>
       <a-button @click="cancle">取消</a-button>
@@ -239,7 +247,7 @@
     <a-modal @ok="goback()" width="300px" v-model="canclemodal" title="提示">
       <div class="ant-modal-confirm-body">
         <!-- <a-icon type="question-circle" :style="{ fontSize: '22px', color: '#faad14' }" /> -->
-        <a-icon type="exclamation-circle" :style="{ fontSize: '22px', color: '#1890ff' }" />
+        <a-icon type="exclamation-circle" :style="{ fontSize: '30px', color: '#1890ff' }" />
         <span class="ant-modal-confirm-title">确定要离开当前页面？</span>
 
         <div class="ant-modal-confirm-content">离开后已更改信息将不会保留</div>
@@ -247,7 +255,7 @@
     </a-modal>
     <a-modal width="300px" v-model="successmodal" :footer="false" title="提示">
       <div class="ant-modal-confirm-body" style="height:60px">
-        <a-icon type="check-circle" :style="{ fontSize: '22px', color: '#52c41a' }" />
+        <a-icon type="check-circle" :style="{ fontSize: '30px', color: '#52c41a' }" />
         <span class="ant-modal-confirm-title">新建表成功！</span>
       </div>
     </a-modal>
@@ -288,7 +296,7 @@ export default class Newbuilt extends Vue {
   private mergeround = true;
   private successmodal: boolean = false;
   private canclemodal: boolean = false;
-  private interval: any = "";
+  private interval: any = 20;
   private roundvalue = ""; //
   private fixedTimes: object = [];
   private cluster = "";
@@ -341,19 +349,9 @@ export default class Newbuilt extends Vue {
   private fieldtotal: number = 5;
   private Partfieldtotal: number = 5;
 
-  private pkList: object = [
-    {
-      name: "id",
-      type: "string",
-      comment: "用户id"
-    },
-    {
-      name: "name",
-      type: "string",
-      comment: "用户id"
-    }
-  ];
+  private pkList: object = [];
   private finalpklist: object = [];
+  private times: any = "";
 
   private back() {
     this.canclemodal = true;
@@ -388,7 +386,7 @@ export default class Newbuilt extends Vue {
     this.Partfieldtotal = res.result.partitionColumnList.length;
     this.fieldtotal = res.result.columnList.length;
     this.columnList = res.result.columnList; //字段
-    this.pkList = res.result.pkList; //主键
+    this.pkList = res.result.columnList; //主键
     console.log(res, "partitionColumnList");
   }
 
@@ -449,14 +447,14 @@ export default class Newbuilt extends Vue {
     this.cdcenable = res.result.cdcMeta.enable;
     this.cluster = res.result.cdcMeta.kafkaClusterInfo.name;
     this.broker = res.result.cdcMeta.kafkaClusterInfo.brokerList;
-    this.topic = res.cdcMeta.topicInfo.topicName;
-    this.partition = res.cdcMeta.topicInfo.partition;
-    this.replication = res.cdcMeta.topicInfo.replication;
-    this.cdcform.setFieldsValue({
-      replication: res.result.cdcMeta.topicInfo.replication,
-      partition: res.result.cdcMeta.topicInfo.partition,
-      topic: res.result.cdcMeta.topicInfo.topicName
-    });
+    // this.topic = res.cdcMeta.topicInfo.topicName;
+    // this.partition = res.cdcMeta.topicInfo.partition;
+    // this.replication = res.cdcMeta.topicInfo.replication;
+    // this.cdcform.setFieldsValue({
+    //   replication: res.result.cdcMeta.topicInfo.replication,
+    //   partition: res.result.cdcMeta.topicInfo.partition,
+    //   topic: res.result.cdcMeta.topicInfo.topicName
+    // });
     this.datalake = res.result.cdcMeta.intoArctic;
     this.mergehive = res.result.adaptHiveMeta.enable;
     this.mergetime =
@@ -570,7 +568,7 @@ export default class Newbuilt extends Vue {
     this.outform.validateFields(async (err, values) => {
       if (!err) {
         // console.info("success", values);
-        const arr = values.fixedtime.split(" ");
+        const arr = values.fixedtime && values.fixedtime.split(" ");
         this.fixedTimes = arr;
         console.log(values.fixedtime, arr);
       }
@@ -594,9 +592,11 @@ export default class Newbuilt extends Vue {
     }
     if ((res.message = "success")) {
       this.successmodal = true;
-      setInterval(() => {
-        location.reload();
-      }, 3000);
+      this.times = setTimeout(() => {
+        this.$router.push({
+          name: "database"
+        });
+      }, 2000);
     }
     console.log(res, "getKafkaClusterInfos");
   }
@@ -633,7 +633,7 @@ export default class Newbuilt extends Vue {
         tableName: this.tableName
       },
       columnList: this.columnList,
-      pkList: this.finalpklist, //主键
+      pkList: this.isedit ? this.pkList : this.finalpklist, //主键
       partitionColumnList: this.partitionColumnList,
       cdcMeta: {
         enable: this.cdcenable, //CDC配置开关
@@ -692,9 +692,9 @@ export default class Newbuilt extends Vue {
       value: ""
     });
   }
-  private changetablename(val) {
+  private async changetablename(val) {
     console.log(val);
-
+    // await this.getTableMeta();
     this.getHiveTableInfo();
   }
   private timeonChange() {}
@@ -715,36 +715,36 @@ export default class Newbuilt extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-// $border: 1px solid #eee;
 .m-newbuilt {
-  color: #fff;
+  color: #eddb9c;
   // background: #263238;
   width: 100%;
   height: 100%;
   padding: 0 16px;
   overflow-y: scroll;
   &-title {
-    color: #fff;
+    color: #eddb9c;
     cursor: pointer;
     font-size: 16px;
     border-bottom: $border;
-    line-height: 32px;
+    line-height: 40px;
   }
   &-tit {
-    color: #fff;
+    color: #eddb9c;
     margin-top: 10px;
     cursor: pointer;
     font-size: 14px;
   }
   &-info {
     width: 60%;
+    min-height: 75%;
     font-size: 12px;
-    color: #eee;
+    color: #eddb9c;
   }
   &-tab {
     width: 500px;
     line-height: 32px;
-    color: #eee;
+    color: #eddb9c;
     &-othertit {
       display: flex;
       width: 500px;
@@ -790,10 +790,19 @@ export default class Newbuilt extends Vue {
     font-size: 12px;
   }
   &-foot {
-    margin: 10px 0;
+    padding: 16px;
     button {
       margin-right: 16px;
     }
+    border-top: $border;
+  }
+  .m-edit-pklist {
+    width: 320px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 16px;
+    border: $border;
+    cursor: not-allowed;
   }
 }
 </style>
@@ -815,12 +824,13 @@ export default class Newbuilt extends Vue {
   box-sizing: border-box;
   width: 48px;
   height: 32px;
-  padding: 4px 16px;
+  text-align: center;
+  padding: 4px 10px;
   border: 1px solid #d2d7e0;
   border-radius: 2px;
   font-size: 14px;
   line-height: 32px;
-  color: #eee;
+  color: #eddb9c;
 }
 .has-error .ant-input,
 .has-error .ant-input:hover {

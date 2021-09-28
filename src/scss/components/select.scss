@@ -3,19 +3,19 @@
 
   &:hover,
   &:focus {
-    border-color: #3B68B7 !important;
+    border-color: #EDDB9C !important;
     box-shadow: none !important;
   }
 }
 
 .ant-calendar-picker:focus .ant-calendar-picker-input:not(.ant-input-disabled) {
   box-shadow: none !important;
-  border-color: #3B68B7 !important;
+  border-color: #EDDB9C !important;
 }
 
 .el-select-dropdown__item.selected{
-  color: #3B68B7!important;
+  color: #EDDB9C!important;
 }
 .el-select .el-input.is-focus .el-input__inner{
-  border-color: #3B68B7!important;
+  border-color: #EDDB9C!important;
 }

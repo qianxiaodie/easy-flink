@@ -2,7 +2,7 @@
   <div class="m-database">
     <div class="m-database-content-tit">
       <div></div>
-      <div>库名</div>
+      <div>{{dataBase}}</div>
       <a-button type="primary" @click="newbuilt">Create</a-button>
     </div>
 
@@ -14,7 +14,7 @@
           style="width: 200px"
           @search="onSearch"
         />&nbsp;
-        <a-icon style="cursor:pointer;color:#ccc" @click="onSearch" type="redo" />
+        <a-icon style="cursor:pointer;color:#EDDB9C" @click="onSearch" type="redo" />
       </div>
 
       <a-table :columns="columns" :data-source="listData" bordered :pagination="false">
@@ -83,10 +83,10 @@ export default class database extends Vue {
       dataIndex: "tableName",
       title: "表名"
     },
-    {
-      dataIndex: "status",
-      title: "同步状态"
-    },
+    // {
+    //   dataIndex: "status",
+    //   title: "同步状态"
+    // },
     {
       dataIndex: "storage",
       title: "存储总量"
@@ -95,10 +95,10 @@ export default class database extends Vue {
       dataIndex: "snapshotCount",
       title: "快照数量"
     },
-    {
-      dataIndex: "visibleTime",
-      title: "最新数据可见时间点"
-    },
+    // {
+    //   dataIndex: "visibleTime",
+    //   title: "最新数据可见时间点"
+    // },
     {
       title: "操作",
       dataIndex: "tags",
@@ -212,7 +212,7 @@ export default class database extends Vue {
 </script>
 <style lang="scss" scoped>
 .link {
-  color: #1890ff;
+  color: #EC7F37;
   cursor: pointer;
   margin: 0 2px;
 }
@@ -230,7 +230,7 @@ export default class database extends Vue {
       width: 100%;
       font-size: 16px;
       height: 40px;
-      color: #fff;
+      color: #EDDB9C;
       text-align: center;
       border-bottom: $border;
       border-right: $border;

@@ -46,7 +46,7 @@
         ></a-table>
       </a-form-item>-->
       <a-form-item label="主键" :label-col="{ span: 5 }" :wrapper-col="{ span: 10 }">
-        <span style="color:#fff" v-for="(item,index) in pkList" :key="index">{{item.name}}</span>&nbsp;&nbsp;
+        <span style="color:#eddb9c;margin-right:16px" v-for="(item,index) in pkList" :key="index">{{item.name}}</span>
         <!-- <u-alarm-input v-on:changeVal="lockValueSel" :options="pkList"></u-alarm-input> -->
         <!-- <span class="m-newbuilt-tips" v-show="isuser">未选择主键的情况下，不支持 Update 操作</span> -->
       </a-form-item>
@@ -70,7 +70,7 @@
         </a-radio-group>
         <div v-if="mergetime">
           每
-          <span style="color:#fff">{{interval}}</span> &nbsp;&nbsp;&nbsp;
+          <span style="color:#eddb9c">{{interval}}</span> &nbsp;&nbsp;&nbsp;
           <span>{{timeround=="min"?"分钟":"小时"}}</span>
           <!-- <input class="ndc-input" v-model="interval" @input="onJumpInput" /> -->
           <!-- <a-select v-model="timeround" style="width:80px" @change="timeroundChange">
@@ -157,7 +157,7 @@
       </a-form>
     </div>-->
 
-    <div class="m-newbuilt-tit" @click="changeother">
+    <!-- <div class="m-newbuilt-tit" @click="changeother">
       <a-icon v-if="otherbool" type="down" />
       <a-icon v-else type="up" />其他配置
     </div>
@@ -168,23 +168,13 @@
       </div>
       <div class="m-newbuilt-tab-other" v-for="(item,index) in paramslist" :key="index">
         <div class="div" style="width:250px;height:34px">
-          <!-- <a-auto-complete
-            :data-source="TableProperties"
-            style="width: 200px"
-            placeholder="input here"
-            v-model="item.params"
-            @change="propertieschange(item.params,index)"
-          />-->
           {{item.params}}
         </div>
         <div class="div" style="width:250px;height:34px">
-          <!-- <input type="text" v-model="item.value" /> -->
           {{item.value}}
         </div>
-        <!-- <a-icon style="width:20px;cursor:pointer" type="close" @click="delparams(index)" /> -->
       </div>
-      <!-- <div @click="addparams" class="m-newbuilt-tab-add">+</div> -->
-    </div>
+    </div> -->
   </div>
 </template>
 <script lang="ts">
@@ -386,7 +376,7 @@ export default class Newbuilt extends Vue {
 <style lang="scss" scoped>
 // $border: 1px solid #eee;
 .m-newbuilt {
-  color: #fff;
+  color: #eddb9c;
   // background: #263238;
   width: 100%;
   height: 100%;
@@ -396,7 +386,7 @@ export default class Newbuilt extends Vue {
     cursor: pointer;
     font-size: 16px;
     border-bottom: $border;
-    line-height: 32px;
+    line-height: 40px;
   }
   &-tit {
     margin-top: 10px;
@@ -405,6 +395,7 @@ export default class Newbuilt extends Vue {
   }
   &-info {
     width: 60%;
+    min-height: 75%;
     font-size: 12px;
     color: #eee;
   }

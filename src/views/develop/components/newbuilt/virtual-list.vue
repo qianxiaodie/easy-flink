@@ -1,26 +1,27 @@
 <template>
   <div class="ndc-virtual-list">
     <div class="ndc-virtual-list-phantom" :style="{ height: listHeight }">
-    <div class="ndc-virtual-list-content" ref="list">
-      <div class="ndc-virtual-list-item"
-        :class="{'active': selectedNodes.includes(item.key || item)}"
-        v-for="(item, index) in visibleData"
-        :key="index"
-        @click="onClick(item)"
-        @dblclick="onDblClick(item)"
-      >
-        <slot name="item" :item="item" :index="index">
-          <span v-html="itemRender(item)"></span>
-        </slot>
+      <div class="ndc-virtual-list-content" ref="list">
+        <div
+          class="ndc-virtual-list-item"
+          :class="{'active': selectedNodes.includes(item.key || item)}"
+          v-for="(item, index) in visibleData"
+          :key="index"
+          @click="onClick(item)"
+          @dblclick="onDblClick(item)"
+        >
+          <slot name="item" :item="item" :index="index">
+            <span v-html="itemRender(item)"></span>
+          </slot>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'NdcVirtualList',
+  name: "NdcVirtualList",
   props: {
     data: {
       type: Array,
@@ -41,7 +42,7 @@ export default {
     itemRender: {
       type: Function,
       default(item) {
-        if (item.render && typeof item.render === 'function') {
+        if (item.render && typeof item.render === "function") {
           return item.render(item);
         }
         return item;
@@ -62,21 +63,21 @@ export default {
       return this.data.length;
     },
     listHeight() {
-      return this.totalCount * this.itemHeight + 'px';
+      return this.totalCount * (this.itemHeight - 10) + "px";
     },
     visibleData() {
       return this.data.slice(this.start, this.end);
     }
   },
   created() {
-    window.addEventListener('resize', this._initListInfo);
+    window.addEventListener("resize", this._initListInfo);
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this._initListInfo);
-    this.$el.removeEventListener('scroll', this._scroll);
+    window.removeEventListener("resize", this._initListInfo);
+    this.$el.removeEventListener("scroll", this._scroll);
   },
   mounted() {
-    this.$el.addEventListener('scroll', this._scroll);
+    this.$el.addEventListener("scroll", this._scroll);
     this._initListInfo(true);
   },
   methods: {
@@ -99,22 +100,22 @@ export default {
       this.start = Math.floor(scrollTop / this.itemHeight);
       this.end = Math.min(this.start + this.visibleCount, this.totalCount);
 
-      this.$refs.list.style.webkitTransform = `translate3d(0, ${this.start * this.itemHeight}px, 0)`;
+      this.$refs.list.style.webkitTransform = `translate3d(0, ${this.start *
+        this.itemHeight}px, 0)`;
 
-      this.$emit('scroll', { event });
+      this.$emit("scroll", { event });
     },
     onClick(item) {
       // this.$emit('click', item);
-      console.log(item,'click')
-
+      console.log(item, "click");
     },
     onDblClick(event, item) {
-      console.log(event,item,'dbcilck')
+      console.log(event, item, "dbcilck");
       // this.$emit('dblclick', {
       //   event,
       //   node: item
       // });
-    },
+    }
   }
 };
 </script>

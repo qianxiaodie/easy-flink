@@ -6,61 +6,69 @@
         <a-icon v-else type="up" />Change表
     </div>-->
     <div class="m-baseinfo-info">
-      <div class="info-desc">
-        <span class="label">最新可见数据时间点</span>
-        <span class="content">{{ changeDetail.visibleTime }}</span>
+      <div class="m-baseinfo-info-contain">
+        <div class="info-desc">
+          <span class="label">最新可见数据时间点</span>
+          <span class="content">{{changeDetail.visibleTime||"null"}}</span>
+        </div>
+        <div class="info-desc">
+          <span class="label">总数据量</span>
+          <span class="content">{{ changeDetail.totalFilesStat.totalSize||"null" }}</span>
+        </div>
+        <div class="info-desc">
+          <span class="label">删除文件数据量</span>
+          <span class="content">{{ changeDetail.snapshotInfo.removedRecords||"null" }}</span>
+        </div>
+        <div class="info-desc">
+          <span class="label">插入文件数据量</span>
+          <span class="content">{{ changeDetail.snapshotInfo.insertFiles||"null" }}</span>
+        </div>
+        <div class="info-desc">
+          <span class="label">快照数量</span>
+          <span class="content">{{ changeDetail.snapshotCnt||"null" }}</span>
+        </div>
+        <div class="info-desc">
+          <span class="label">平均快照大小</span>
+          <span class="content">{{ changeDetail.averageSnapshotSize||"null" }}</span>
+        </div>
       </div>
-      <div class="info-desc">
-        <span class="label">总数据量</span>
-        <span class="content">{{ changeDetail.totalFilesStat.totalSize }}</span>
+
+      <div class="m-baseinfo-info-contain">
+        <div class="info-desc">
+          <span class="label">平均文件大小</span>
+          <span class="content">{{ changeDetail.totalFilesStat.averageSize ||"null"}}</span>
+        </div>
+        <div class="info-desc">
+          <span class="label">删除文件个数</span>
+          <span class="content">{{ changeDetail.snapshotInfo.deleteFiles||"null" }}</span>
+        </div>
+        <div class="info-desc">
+          <span class="label">插入文件个数</span>
+          <span class="content">{{ changeDetail.snapshotInfo.insertFile||"null" }}</span>
+        </div>
+        <div class="info-desc">
+          <span class="label">最新快照ID</span>
+          <span class="content">{{ changeDetail.snapshotInfo.snapshotId ||"null"}}</span>
+        </div>
       </div>
-      <div class="info-desc">
-        <span class="label">总文件个数</span>
-        <span class="content">{{ changeDetail.totalFilesStat.fileCnt }}</span>
-      </div>
-      <div class="info-desc">
-        <span class="label">平均文件大小</span>
-        <span class="content">{{ changeDetail.totalFilesStat.averageSize }}</span>
-      </div>
-      <div class="info-desc">
-        <span class="label">删除文件数据量</span>
-        <span class="content">{{ changeDetail.snapshotInfo.removedRecords }}</span>
-      </div>
-      <div class="info-desc">
-        <span class="label">删除文件个数</span>
-        <span class="content">{{ changeDetail.snapshotInfo.deleteFiles }}</span>
-      </div>
-      <div class="info-desc">
-        <span class="label">删除文件平均大小</span>
-        <span class="content">{{ changeDetail.snapshotInfo.deleteFilesSize }}</span>
-      </div>
-      <div class="info-desc">
-        <span class="label">插入文件数据量</span>
-        <span class="content">{{ changeDetail.snapshotInfo.插入Files }}</span>
-      </div>
-      <div class="info-desc">
-        <span class="label">插入文件个数</span>
-        <span class="content">{{ changeDetail.snapshotInfo.插入File }}</span>
-      </div>
-      <div class="info-desc">
-        <span class="label">插入文件平均大小</span>
-        <span class="content">{{ changeDetail.插入averageSize }}</span>
-      </div>
-      <div class="info-desc">
-        <span class="label">快照数量</span>
-        <span class="content">{{ changeDetail.snapshotCnt }}</span>
-      </div>
-      <div class="info-desc">
-        <span class="label">最新快照ID</span>
-        <span class="content">{{ changeDetail.snapshotInfo.snapshotId }}</span>
-      </div>
-      <div class="info-desc">
-        <span class="label">最新快照大小</span>
-        <span class="content">{{ changeDetail.snapshotInfo.totalSize }}</span>
-      </div>
-      <div class="info-desc">
-        <span class="label">平均快照大小</span>
-        <span class="content">{{ changeDetail.averageSnapshotSize }}</span>
+
+      <div class="m-baseinfo-info-contain">
+        <div class="info-desc">
+          <span class="label">总文件个数</span>
+          <span class="content">{{ changeDetail.totalFilesStat.fileCnt||"null" }}</span>
+        </div>
+        <div class="info-desc">
+          <span class="label">删除文件平均大小</span>
+          <span class="content">{{ changeDetail.snapshotInfo.deleteFilesSize ||"null"}}</span>
+        </div>
+        <div class="info-desc">
+          <span class="label">插入文件平均大小</span>
+          <span class="content">{{ changeDetail.insertaverageSize ||"null"}}</span>
+        </div>
+        <div class="info-desc">
+          <span class="label">最新快照大小</span>
+          <span class="content">{{ changeDetail.snapshotInfo.totalSize||"null" }}</span>
+        </div>
       </div>
     </div>
     <!-- </div> -->
@@ -106,6 +114,7 @@
 <script lang="ts">
 import { Component, Vue, Provide } from "vue-property-decorator";
 import { IChange, IBase } from "../../../../utils/type";
+import { dateFormat } from "../../../develop/utils";
 
 @Component({
   components: {}
@@ -113,9 +122,10 @@ import { IChange, IBase } from "../../../../utils/type";
 export default class Baseinfo extends Vue {
   private changebool: boolean = true;
   private basebool: boolean = true;
-  private changeDetail = {
+  private changeDetail: any = {
     totalFilesStat: {},
-    snapshotInfo: {}
+    snapshotInfo: {},
+    visibleTime: ""
   };
   private baseTableInfo = {
     totalFilesStat: {},
@@ -141,7 +151,13 @@ export default class Baseinfo extends Vue {
       tableName: this.$route.query.tableName
     });
     result = result.result;
-    this.changeDetail = result.changeTableInfo || {};
+    this.changeDetail = result.changeTableInfo || {
+      totalFilesStat: {},
+      snapshotInfo: {}
+    };
+    this.changeDetail.visibleTime =
+      this.changeDetail.visibleTime &&
+      dateFormat(Number(this.changeDetail.visibleTime));
     this.baseTableInfo = result.baseTableInfo || {};
     console.log(result, this.changeDetail, this.baseTableInfo, "changeDetail");
     return result;
@@ -167,8 +183,10 @@ export default class Baseinfo extends Vue {
     padding: 16px 20px;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: space-between;
     box-sizing: border-box;
-    color: #fff;
+    color: #eddb9c;
     .baseinfo-resource {
       // padding-left: 24px;
       box-sizing: border-box;
@@ -176,18 +194,21 @@ export default class Baseinfo extends Vue {
         width: 150px !important;
       }
     }
+    &-contain {
+      width: 30%;
+    }
     .info-desc {
       display: flex;
-      line-height: 28px;
-
+      line-height: 44px;
       .label {
         display: block;
-        color: #fff;
+        color: #eddb9c;
         width: 160px;
         flex-shrink: 0;
       }
       .content {
-        color: #999;
+        color: #eddb9c;
+        opacity: 0.5;
       }
     }
     .title {

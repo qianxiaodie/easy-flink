@@ -161,19 +161,5 @@ export default class NavTree extends Vue {
   overflow-y: scroll;
   overflow-x: hidden;
   height: 85%;
-  .ant-menu {
-    width: 200px;
-    color: #999;
-    .ant-menu-item-selected {
-      // background-color: #f5f7fa;
-      background-color: #666;
-      color: #f5f7fa;
-      font-weight: 600;
-    }
-    .ant-menu-item-active {
-      background-color: #666;
-      color: #f5f7fa;
-    }
-  }
 }
 </style>

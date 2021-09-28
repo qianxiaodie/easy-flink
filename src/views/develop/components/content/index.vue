@@ -1,7 +1,8 @@
 <template>
   <div class="card-container">
     <div class="m-content-tit">
-      <a-icon type="left" @click="back()" />表名
+      <a-icon type="left" @click="back()" />
+      {{tableName}}
       <span></span>
     </div>
     <Baseinfo></Baseinfo>
@@ -40,6 +41,8 @@ export default class Content extends Vue {
     // })
   }
 
+  private tableName = this.$route.query.tableName;
+
   private back() {
     this.$router.back();
   }
@@ -64,7 +67,7 @@ $border: 1px solid #333;
     width: 100%;
     line-height: 40px;
     font-size: 16px;
-    color: #fff;
+    color: #EDDB9C;
     text-align: center;
     border: $border;
     display: flex;
